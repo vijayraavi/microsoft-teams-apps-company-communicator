@@ -24,8 +24,8 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Microsoft.Teams.Apps.CompanyCommunicator.Common\Microsoft.Teams.Apps.CompanyCommunicator.Common.csproj" />
-    <ProjectReference Include="..\..\Microsoft.Teams.Apps.CompanyCommunicator.Send.Func\Microsoft.Teams.Apps.CompanyCommunicator.Send.Func.csproj" />
+    <ProjectReference Include="..\..\CompanyCommunicator.Common\Microsoft.Teams.Apps.CompanyCommunicator.Common.csproj" />
+    <ProjectReference Include="..\..\CompanyCommunicator.Send.Func\Microsoft.Teams.Apps.CompanyCommunicator.Send.Func.csproj" />
   </ItemGroup>
 
 </Project>

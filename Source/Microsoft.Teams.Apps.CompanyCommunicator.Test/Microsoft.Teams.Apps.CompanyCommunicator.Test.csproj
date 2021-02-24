@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Microsoft.Teams.Apps.CompanyCommunicator\Microsoft.Teams.Apps.CompanyCommunicator.csproj" />
+    <ProjectReference Include="..\CompanyCommunicator\Microsoft.Teams.Apps.CompanyCommunicator.csproj" />
   </ItemGroup>
 
 
