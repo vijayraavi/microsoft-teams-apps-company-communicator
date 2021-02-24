@@ -78,7 +78,7 @@
     <LangVersion>8.0</LangVersion>
     <UserSecretsId>2e464615-9805-4f14-8ecf-e648efd77a99</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <AssemblyName>CompanyCommunicator</AssemblyName>
+    <AssemblyName>Microsoft.Teams.Apps.CompanyCommunicator</AssemblyName>
   </PropertyGroup>
 
 </Project>
