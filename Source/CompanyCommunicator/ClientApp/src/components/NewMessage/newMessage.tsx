@@ -551,19 +551,19 @@ class NewMessage extends React.Component<INewMessageProps, formState> {
         }
     }
 
-    private onGroupSelected = (value: any) => {
+    private onGroupSelected = (event: any, data: any) => {
         this.setState({
-            selectedRadioBtn: value,
-            teamsOptionSelected: value === 'teams',
-            rostersOptionSelected: value === 'rosters',
-            groupsOptionSelected: value === 'groups',
-            allUsersOptionSelected: value === 'allUsers',
-            selectedTeams: value === 'teams' ? this.state.selectedTeams : [],
-            selectedTeamsNum: value === 'teams' ? this.state.selectedTeamsNum : 0,
-            selectedRosters: value === 'rosters' ? this.state.selectedRosters : [],
-            selectedRostersNum: value === 'rosters' ? this.state.selectedRostersNum : 0,
-            selectedGroups: value === 'groups' ? this.state.selectedGroups : [],
-            selectedGroupsNum: value === 'groups' ? this.state.selectedGroupsNum : 0,
+            selectedRadioBtn: data.value,
+            teamsOptionSelected: data.value === 'teams',
+            rostersOptionSelected: data.value === 'rosters',
+            groupsOptionSelected: data.value === 'groups',
+            allUsersOptionSelected: data.value === 'allUsers',
+            selectedTeams: data.value === 'teams' ? this.state.selectedTeams : [],
+            selectedTeamsNum: data.value === 'teams' ? this.state.selectedTeamsNum : 0,
+            selectedRosters: data.value === 'rosters' ? this.state.selectedRosters : [],
+            selectedRostersNum: data.value === 'rosters' ? this.state.selectedRostersNum : 0,
+            selectedGroups: data.value === 'groups' ? this.state.selectedGroups : [],
+            selectedGroupsNum: data.value === 'groups' ? this.state.selectedGroupsNum : 0,
         });
     }
 
