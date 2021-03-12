@@ -1,18 +1,14 @@
 .tabContainer {
+
     .newPostBtn {
-        float: right;
-        display: block;
         margin: 0.5rem 0rem;
     }
 
     .messageContainer {
-        clear: both;
-        display: block;
 
         .ui-accordion__title {
             margin-top: 1.6rem;
         }
-
     }
 
     .ms-DetailsRow {
@@ -30,6 +26,7 @@
     }
 }
 
+/*
 @media only screen and (min-width : 1000px) {
     .taskModule {
         .formContainer {
@@ -72,14 +69,13 @@
             }
         }
     }
-}
+}*/
 
 @media screen and (min-width : 0px) and (max-width: 825px) {
     .taskModule {
         .formContainer {
-            .formContentContainer {
-                width: 100%;
-                display: block;
+            .scrollableContent {
+                flex-direction: column
             }
 
             .adaptiveCardContainer {

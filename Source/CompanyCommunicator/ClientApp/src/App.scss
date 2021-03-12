@@ -90,8 +90,8 @@
     }
 
     .ac-container {
-        border: 0.2rem solid #c8c6c4;
-        border-top: 0.2rem solid #6265A9;
+        border: 0.2rem solid #c8c6c4 !important;
+        border-top: 0.2rem solid #6265A9 !important;
         border-radius: 0.3rem;
         width: 42rem;
         padding: 1.6rem !important;
@@ -367,7 +367,6 @@
             background-color: #d3d3d3;
             color: #a7a7a7;
         }
-
     }
 
     .secondaryBtn {
@@ -398,25 +397,20 @@
             margin: 0.5rem 0rem;
         }
 
-        [type="radio"]:checked,
-        [type="radio"]:not(:checked) {
-            position: absolute;
-            left: -9999rem;
-        }
 
-        [type="radio"]:checked+label,
-        [type="radio"]:not(:checked)+label {
+        [role="radio"],
+        [role="radio"] {
             position: relative;
-            padding-left: 2.5rem;
+            // padding-left: 2.5rem;
             cursor: pointer;
             line-height: 2rem;
-            display: inline-block;
+            //  display: inline-block;
             color: #484644;
             font-size: 1.2rem;
         }
-
-        [type="radio"]:checked+label:before,
-        [type="radio"]:not(:checked)+label:before {
+        /*
+        [role="radio"]::before
+        {
             content: '';
             position: absolute;
             left: 0;
@@ -428,8 +422,8 @@
             background: #fff;
         }
 
-        [type="radio"]:checked+label:after,
-        [type="radio"]:not(:checked)+label:after {
+        [role="radio"]::after
+        {
             content: '';
             width: 1.2rem;
             height: 1.2rem;
@@ -442,17 +436,17 @@
             transition: all 0.2s ease;
         }
 
-        [type="radio"]:not(:checked)+label:after {
+        [role="radio"]::after {
             opacity: 0;
             -webkit-transform: scale(0);
             transform: scale(0);
         }
 
-        [type="radio"]:checked+label:after {
+        [role="radio"]::after {
             opacity: 1;
             -webkit-transform: scale(1);
             transform: scale(1);
-        }
+        }*/
     }
 }
 
