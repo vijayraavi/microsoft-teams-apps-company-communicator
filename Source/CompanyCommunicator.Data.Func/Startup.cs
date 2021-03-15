@@ -12,10 +12,10 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Data.Func
     using System.Globalization;
     using global::Azure.Storage.Blobs;
     using Microsoft.Azure.Functions.Extensions.DependencyInjection;
-    using Microsoft.Bot.Builder.Integration.AspNet.Core;
     using Microsoft.Bot.Connector.Authentication;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Teams.Apps.CompanyCommunicator.Common.Adapter;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.ExportData;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Repositories.NotificationData;
@@ -99,8 +99,9 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Data.Func
 
             // Add bot services.
             builder.Services.AddSingleton<UserAppCredentials>();
+            builder.Services.AddSingleton<AuthorAppCredentials>();
             builder.Services.AddSingleton<ICredentialProvider, ConfigurationCredentialProvider>();
-            builder.Services.AddSingleton<BotFrameworkHttpAdapter>();
+            builder.Services.AddSingleton<ICCBotFrameworkHttpAdapter, CCBotFrameworkHttpAdapter>();
 
             // Add services.
             builder.Services.AddSingleton<IFileCardService, FileCardService>();

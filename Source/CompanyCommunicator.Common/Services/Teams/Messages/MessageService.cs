@@ -9,11 +9,10 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Teams
     using System.Net;
     using System.Threading;
     using System.Threading.Tasks;
-    using Microsoft.Bot.Builder.Integration.AspNet.Core;
-    using Microsoft.Bot.Connector.Authentication;
     using Microsoft.Bot.Schema;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
+    using Microsoft.Teams.Apps.CompanyCommunicator.Common.Adapter;
     using Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.CommonBot;
     using Polly;
     using Polly.Contrib.WaitAndRetry;
@@ -25,7 +24,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Teams
     public class MessageService : IMessageService
     {
         private readonly string microsoftAppId;
-        private readonly BotFrameworkHttpAdapter botAdapter;
+        private readonly ICCBotFrameworkHttpAdapter botAdapter;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageService"/> class.
@@ -34,7 +33,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Teams
         /// <param name="botAdapter">The bot adapter.</param>
         public MessageService(
             IOptions<BotOptions> botOptions,
-            BotFrameworkHttpAdapter botAdapter)
+            ICCBotFrameworkHttpAdapter botAdapter)
         {
             this.microsoftAppId = botOptions?.Value?.UserAppId ?? throw new ArgumentNullException(nameof(botOptions));
             this.botAdapter = botAdapter ?? throw new ArgumentNullException(nameof(botAdapter));
@@ -68,9 +67,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Teams
                 throw new ArgumentNullException(nameof(log));
             }
 
-            // Set the service URL in the trusted list to ensure the SDK includes the token in the request.
-            MicrosoftAppCredentials.TrustServiceUrl(serviceUrl);
-
             var conversationReference = new ConversationReference
             {
                 ServiceUrl = serviceUrl,
@@ -87,7 +83,7 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Common.Services.Teams
             };
 
             await this.botAdapter.ContinueConversationAsync(
-                botAppId: this.microsoftAppId,
+                botId: this.microsoftAppId,
                 reference: conversationReference,
                 callback: async (turnContext, cancellationToken) =>
                 {

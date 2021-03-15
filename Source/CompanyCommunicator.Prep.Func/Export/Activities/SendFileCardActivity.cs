@@ -81,8 +81,6 @@ namespace Microsoft.Teams.Apps.CompanyCommunicator.Prep.Func.Export.Activities
         {
             var user = await this.userDataRepository.GetAsync(UserDataTableNames.AuthorDataPartition, sendData.userId);
 
-            // Set the service URL in the trusted list to ensure the SDK includes the token in the request.
-            MicrosoftAppCredentials.TrustServiceUrl(user.ServiceUrl);
             string conversationId = string.Empty;
             if (!string.IsNullOrEmpty(user.UserId))
             {
